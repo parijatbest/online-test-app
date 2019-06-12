@@ -1,9 +1,15 @@
+.App .container {
+    position: relative;
+}
+
 .App .container .left-panel {
     height: 100vh;
     text-align: right;
     background: #F4F4F4;
     padding-top: 20px;
+    padding-right: 50px;
 }
+
 .App .container .right-panel {
     height: 100vh;
     text-align: center;
@@ -11,31 +17,50 @@
     padding-top: 20px;
     color: #fff;
 }
+
 .App .login-status {
     text-align: left;
     width: 50%;
     margin: 0 auto;
 }
+
 .App .login-status .login-status-msg {
     font-size: .8em;
     margin: 0;
 }
+
 .App .login-status .login-status-id {
     font-size: 1em;
     margin: 0;
 }
+
 .App .counter {
     margin-top: 70vh;
 }
+
 .App .counter .counter-text {
     font-size: 1em;
     margin: 0;
 }
+
 .App .counter .counter-time {
     font-size: 2em;
     margin: 0;
 }
-.btn.submit-test {
+
+.App .btn.submit-test {
     padding: 6px 50px;
     border-radius: 20px;
+}
+
+.App .question-view {
+    background: #F4F4F4;
+    height: 80vh;
+    width: 80%;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    -webkit-box-shadow: 7px 1px 10px -4px rgba(0,0,0,1);
+-moz-box-shadow: 7px 1px 10px -4px rgba(0,0,0,1);
+box-shadow: 7px 1px 10px -4px rgba(0,0,0,1);
 }

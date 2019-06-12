@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 class QuestionView extends Component {
     render() {
         return (
-            <React.Fragment>
+            <div className="question-view">
                 {/* NavBar */}
                 <div>
                     {/* Question Comp */}
                     {/* {this.props.children} */}
                 </div>
                 {/* QuestionMap */}
-            </React.Fragment>
+            </div>
         );
     }
 }
