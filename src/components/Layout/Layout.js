@@ -2,16 +2,23 @@ import React, { Component } from 'react';
 import QuestionView from '../QuestionView/QuestionView';
 import LeftPanel from './../LeftPanel/LeftPanel';
 import RightPanel from './../RightPanel/RightPanel';
+import { Container, Row, Col } from 'react-bootstrap';
 
 class Layout extends Component {
     render() {
         return (
             <React.Fragment>
-                <main>
-                    <LeftPanel />
-                    <RightPanel />
+                <Container>
+                    <Row>
+                        <Col lg="9" className="left-panel">
+                            <LeftPanel />
+                        </Col>
+                        <Col lg="3" className="right-panel">
+                            <RightPanel />
+                        </Col>
+                    </Row>
                     <QuestionView />
-                </main>
+                </Container>
                 {/* Modal */}
             </React.Fragment>
         );

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 
 class LeftPanel extends Component {
     render() {
         return (
-            <button>Submit</button>
+            <div>
+                <Button type="submit" variant="primary" className="submit-test">SUBMIT TEST</Button>
+            </div>
         );
     }
 }

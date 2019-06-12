@@ -1,33 +1,41 @@
-.App {
-  text-align: center;
+.App .container .left-panel {
+    height: 100vh;
+    text-align: right;
+    background: #F4F4F4;
+    padding-top: 20px;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.App .container .right-panel {
+    height: 100vh;
+    text-align: center;
+    background: #2D2F31;
+    padding-top: 20px;
+    color: #fff;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App .login-status {
+    text-align: left;
+    width: 50%;
+    margin: 0 auto;
 }
-
-.App-link {
-  color: #61dafb;
+.App .login-status .login-status-msg {
+    font-size: .8em;
+    margin: 0;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App .login-status .login-status-id {
+    font-size: 1em;
+    margin: 0;
+}
+.App .counter {
+    margin-top: 70vh;
+}
+.App .counter .counter-text {
+    font-size: 1em;
+    margin: 0;
+}
+.App .counter .counter-time {
+    font-size: 2em;
+    margin: 0;
+}
+.btn.submit-test {
+    padding: 6px 50px;
+    border-radius: 20px;
 }
