@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import QBadge from './../QBadge/QBadge';
 
 class QuestionMap extends Component {
     render() {
@@ -6,7 +7,9 @@ class QuestionMap extends Component {
         return (
             <div className="question-map">
                 <h3 className="qmap-heading">Questions in {sectionName}</h3>
-                <div className="qmap-badge">B1 B2 ...</div>
+                <div className="qmap-badge">
+                    <QBadge />
+                </div>
                 <div className="qmap-legend">
                     <div className="legend answered">Answered</div>
                     <div className="legend unanswered">Unanswered</div>

@@ -3,18 +3,18 @@ import { Form } from 'react-bootstrap';
 
 class Options extends Component {
     render() {
-        const options = ["Sample answer 1", "Sample answer 2", "Sample answer 3", "Sample answer 4"];
+        const {ansOptions, qID} = this.props;
 
         return (
             <Form>
-                {options.map((opt, ind) => {
+                {ansOptions.map((optObj) => {
                     return (<Form.Check
                         custom
                         type="radio"
-                        name="logical-q1-opt"
-                        id={`logical-q1-${ind}`}
-                        key={`logical-q1-${ind}`}
-                        label={opt}
+                        name={qID}
+                        id={optObj.aID}
+                        key={optObj.aID}
+                        label={optObj.aDesc}
                     />)
                 })}
             </Form>

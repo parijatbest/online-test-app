@@ -1,9 +1,10 @@
 .App .container {
     position: relative;
 }
-
+.App .container .layout {
+    height: 790px;
+}
 .App .container .left-panel {
-    height: 100vh;
     text-align: right;
     background: #F4F4F4;
     padding-top: 20px;
@@ -11,7 +12,6 @@
 }
 
 .App .container .right-panel {
-    height: 100vh;
     text-align: center;
     background: #2D2F31;
     padding-top: 20px;
@@ -35,7 +35,9 @@
 }
 
 .App .counter {
-    margin-top: 70vh;
+    position: absolute;
+    bottom: 60px;
+    left: 95px;
 }
 
 .App .counter .counter-text {
@@ -122,4 +124,51 @@
 }
 .App .question-view .question .question-map .qmap-heading {
     font-size: 0.85em;
+}
+.App .question-view .question .question-map .qmap-legend .legend {
+    padding-right: 30px;
+    display: inline-block;
+    font-size: 0.8em;
+}
+.App .question-view .question .question-map .qmap-legend .legend:before {
+    display: inline-block;
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: #000;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.App .question-view .question .question-map .qmap-legend .legend.answered:before {
+    background: #2EB570;
+}
+.App .question-view .question .question-map .qmap-legend .legend.unanswered:before {
+    background: #B84E3E;
+}
+.App .question-view .question .question-map .qmap-legend .legend.current:before {
+    background: #A0A7AF;
+}
+.App .question-view .question .question-map .qmap-badge {
+    padding: 10px 50px 10px 10px;
+}
+.App .question-view .question .question-map .qmap-badge .badge {
+    border-radius: 50%;
+    color: #000;
+    margin-right: 10px;
+    font-size: 0.6em;
+    width: 20px;
+    height: 20px;
+    padding: 5px 0 0 0;
+}
+.App .question-view .question .question-map .qmap-badge .badge.badge-answered {
+    background: #2EB570;
+    color: #fff;
+}
+.App .question-view .question .question-map .qmap-badge .badge.badge-unanswered {
+    background: #B84E3E;
+    color: #fff;
+}
+.App .question-view .question .question-map .qmap-badge .badge.badge-current {
+    background: #A0A7AF;
+    color: #fff;
 }

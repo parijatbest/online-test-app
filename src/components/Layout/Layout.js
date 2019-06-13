@@ -9,7 +9,7 @@ class Layout extends Component {
         return (
             <React.Fragment>
                 <Container>
-                    <Row>
+                    <Row className="layout">
                         <Col lg="9" className="left-panel">
                             <LeftPanel />
                         </Col>
@@ -19,7 +19,6 @@ class Layout extends Component {
                     </Row>
                     <QuestionView />
                 </Container>
-                {/* Modal */}
             </React.Fragment>
         );
     }
