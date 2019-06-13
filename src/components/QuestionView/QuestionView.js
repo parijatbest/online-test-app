@@ -11,7 +11,8 @@ class QuestionView extends Component {
             logical: 1,
             aptitude: 1,
             reasoning: 1
-        }
+        },
+        answerStatus: {}
     }
     handleTabclick = (eventKey) => {
         this.setState({ activeTab: eventKey });
@@ -49,6 +50,12 @@ class QuestionView extends Component {
             })
         }
     }
+    handleAnswerStatus = (qID) => {
+        const obj = {...this.state.answerStatus};
+        obj[qID] = "attempted";
+        this.setState({ answerStatus: obj });
+    }
+
     render() {
         return (
             <div className="question-view">
@@ -57,8 +64,10 @@ class QuestionView extends Component {
                     activeTab={this.state.activeTab} />
                 <Question
                     setCurQuesNo={this.setCurQuesNo}
+                    handleAnswerStatus={this.handleAnswerStatus}
                     curQuesNo={this.state.curQuesNo}
                     activeTab={this.state.activeTab}
+                    answerStatus={this.state.answerStatus}
                     data={this.state.data} />
             </div>
         );

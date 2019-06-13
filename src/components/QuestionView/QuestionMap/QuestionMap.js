@@ -3,12 +3,19 @@ import QBadge from './../QBadge/QBadge';
 
 class QuestionMap extends Component {
     render() {
-        const sectionName = "logical section";
+        const { setCurQuesNo, curQuesNo, totalQues, activeTab, activeTabData, answerStatus, handleAnswerStatus } = this.props;
+
         return (
             <div className="question-map">
-                <h3 className="qmap-heading">Questions in {sectionName}</h3>
+                <h3 className="qmap-heading">Questions in {activeTab} section</h3>
                 <div className="qmap-badge">
-                    <QBadge />
+                    <QBadge
+                        handleAnswerStatus={handleAnswerStatus}
+                        answerStatus={answerStatus}
+                        activeTabData={activeTabData}
+                        // totalQues={totalQues}
+                        curQuesNo={curQuesNo}
+                        setCurQuesNo={setCurQuesNo} />
                 </div>
                 <div className="qmap-legend">
                     <div className="legend answered">Answered</div>

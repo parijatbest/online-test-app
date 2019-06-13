@@ -5,8 +5,7 @@ import Options from './../Options/Options';
 
 class Question extends Component {
     render() {
-        console.log(this.props);
-        const { activeTab, data, setCurQuesNo, curQuesNo } = this.props;
+        const { activeTab, data, setCurQuesNo, curQuesNo, answerStatus, handleAnswerStatus } = this.props;
         const qNo = curQuesNo[activeTab];
         const totalQues = data[activeTab].questions.length;
         return (
@@ -26,7 +25,14 @@ class Question extends Component {
                         curQuesNo={qNo}
                         setCurQuesNo={setCurQuesNo} />
                 </div>
-                <QuestionMap />
+                <QuestionMap
+                    handleAnswerStatus={handleAnswerStatus}
+                    answerStatus={answerStatus}
+                    activeTabData={data[activeTab]}
+                    activeTab={activeTab}
+                    totalQues={totalQues}
+                    curQuesNo={qNo}
+                    setCurQuesNo={setCurQuesNo} />
             </div>
         );
     }

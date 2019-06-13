@@ -2,19 +2,39 @@ import React, { Component } from 'react';
 
 class QBadge extends Component {
     render() {
-        const questions = [1,2,3,4,5];
-        const qBadges = questions.map((qNo,i)=> {
-            return <a href="javascipt:void(0);" className="badge badge-pill badge-answered" key={`qBadge${qNo}_${i}`}>{qNo}</a>
+        const { activeTabData, setCurQuesNo, answerStatus, handleAnswerStatus, curQuesNo } = this.props;
+        console.log(answerStatus);
+        //badge-answered
+        
+        const onBadgeClick = (e) => {
+            e.preventDefault();
+            setCurQuesNo(parseInt(e.target.getAttribute("data-qno")));
+            handleAnswerStatus(e.target.id);
+        }
+        const checkBadge = (key, index) => {
+            let badgeClass = "";
+            if(answerStatus && answerStatus[key] || index === 0) {
+                badgeClass = "badge-unanswered";
+            }
+            if(curQuesNo == index + 1) {
+                badgeClass += " badge-current";
+            }
+            return badgeClass;
+        }
+        const qBadges = activeTabData.questions.map((qObj, ind) => {
+            const badgeClass = checkBadge(qObj.qID, ind);
+            return <a
+                data-qno={ind + 1}
+                id={qObj.qID}
+                href="#"
+                className={`badge badge-pill ${badgeClass}`}
+                onClick={onBadgeClick}
+                key={qObj.qID}>
+                {ind + 1}
+            </a>
         })
-        return (
-            qBadges
-            // <div>
-            //     <a href="javascipt:void(0);" className="badge badge-pill badge-answered">1</a> 
-            //     <a href="javascipt:void(0);" className="badge badge-pill badge-unanswered">2</a> 
-            //     <a href="javascipt:void(0);" className="badge badge-pill badge-current">3</a> 
-            //     <a href="javascipt:void(0);" className="badge badge-pill">3</a>
-            // </div>
-        );
+    
+        return qBadges;
     }
 }
 export default QBadge;
