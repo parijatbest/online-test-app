@@ -55,7 +55,6 @@
 
 .App .question-view {
     background: #F4F4F4;
-    height: 80vh;
     width: 80%;
     position: absolute;
     top: 80px;
@@ -65,7 +64,7 @@
     box-shadow: 7px 1px 10px -4px rgba(0,0,0,1);
 }
 .App .help-text {
-    color: #B27065;
+    color: #9C5953;
     position: absolute;
     right: 20px;
     top: 20px;
@@ -81,5 +80,32 @@
 }
 .App .question-view .nav .nav-item .nav-link.active {
     background: none;
-    border-bottom: 2px solid #618FA4;
+    border-bottom: 3px solid #C5EAFC;
+    font-weight: 600;
+}
+.App .question-view .question {
+    padding: 0 20px 20px 20px;
+}
+.App .question-view .question .question-heading {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 1.8em;
+}
+.App .question-view .question .question-box {
+    border: 2px solid #eee;
+    background: #fff;
+}
+.App .question-view .question .question-box .question-desc {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+.App .question-view .question .question-box .question-opt .custom-control {
+    padding: 15px 35px;
+    border-bottom: 1px solid #eee;
+}
+.App .question-view .question .question-box .question-nav {
+    padding: 20px 25px;
+}
+.App .question-view .question .question-box .question-nav .next-question {
+    float: right;
 }
