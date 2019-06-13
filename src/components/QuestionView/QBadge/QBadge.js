@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 class QBadge extends Component {
     render() {
         const { activeTabData, setCurQuesNo, answerStatus, curQuesNo } = this.props;
-        console.log(answerStatus);
-        //badge-answered
-        
         const onBadgeClick = (e) => {
             e.preventDefault();
             setCurQuesNo(parseInt(e.target.getAttribute("data-qno")), e.target.id);
