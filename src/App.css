@@ -48,9 +48,15 @@
     margin: 0;
 }
 
-.App .btn.submit-test {
+.App .btn {
     padding: 6px 50px;
     border-radius: 20px;
+}
+.App .btn:disabled {
+    background: #F4F4F4;
+    border: 1px solid #ccc;
+    color: #000;
+    opacity: 0.9;
 }
 
 .App .question-view {
@@ -108,4 +114,12 @@
 }
 .App .question-view .question .question-box .question-nav .next-question {
     float: right;
+}
+.App .question-view .question .question-map {
+    border: 1px solid #ccc;
+    margin-top: 30px;
+    padding: 10px 20px;
+}
+.App .question-view .question .question-map .qmap-heading {
+    font-size: 0.85em;
 }
