@@ -11,7 +11,7 @@ class Layout extends Component {
                 <Container>
                     <Row className="layout">
                         <Col lg="9" className="left-panel">
-                            <LeftPanel />
+                            <LeftPanel onSubmitClick={onSubmitClick} />
                         </Col>
                         <Col lg="3" className="right-panel">
                             <RightPanel />

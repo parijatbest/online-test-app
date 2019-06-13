@@ -3,8 +3,12 @@ import { Form } from 'react-bootstrap';
 
 class Options extends Component {
     render() {
-        const {ansOptions, qID, onRadioClick} = this.props;
-
+        const {ansOptions, qID, onRadioClick, answerStatus} = this.props;
+        let answered = null;
+        if(answerStatus[qID] && answerStatus[qID].answered) {
+            answered=answerStatus[qID].answered;
+            console.log("answered=>", answered);
+        }
         return (
             <Form>
                 {ansOptions.map((optObj) => {
@@ -16,7 +20,8 @@ class Options extends Component {
                         key={optObj.aID}
                         label={optObj.aDesc}
                         value={optObj.aID}
-                        onClick={onRadioClick}
+                        onChange={onRadioClick}
+                        checked={(answered == optObj.aID) ? true : false}
                     />)
                 })}
             </Form>

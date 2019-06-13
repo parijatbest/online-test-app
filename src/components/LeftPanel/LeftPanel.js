@@ -5,7 +5,11 @@ class LeftPanel extends Component {
     render() {
         return (
             <div>
-                <Button type="submit" variant="primary" className="submit-test">SUBMIT TEST</Button>
+                <Button
+                    type="submit"
+                    variant="primary"
+                    className="submit-test"
+                    onClick={this.props.onSubmitClick}>SUBMIT TEST</Button>
             </div>
         );
     }

@@ -23,6 +23,7 @@ class Question extends Component {
                     </div>
                     <div className="question-opt">
                         <Options
+                            answerStatus={answerStatus}
                             onRadioClick={onRadioClick}
                             qID={data[activeTab].questions[qNo - 1].qID}
                             ansOptions={data[activeTab].questions[qNo - 1].ansOptions} />
