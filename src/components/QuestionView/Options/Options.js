@@ -7,7 +7,6 @@ class Options extends Component {
         let answered = null;
         if(answerStatus[qID] && answerStatus[qID].answered) {
             answered=answerStatus[qID].answered;
-            console.log("answered=>", answered);
         }
         return (
             <Form>
