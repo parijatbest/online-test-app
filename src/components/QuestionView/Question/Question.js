@@ -4,8 +4,14 @@ import QuestionMap from './../QuestionMap/QuestionMap';
 import Options from './../Options/Options';
 
 class Question extends Component {
+    componentDidMount() {
+        const { activeTab, data, curQuesNo, handleAnswerStatus } = this.props;
+        const qNo = curQuesNo[activeTab];
+        const qId = data[activeTab].questions[qNo - 1].qID;
+        handleAnswerStatus(qId);
+    }
     render() {
-        const { activeTab, data, setCurQuesNo, curQuesNo, answerStatus, handleAnswerStatus } = this.props;
+        const { activeTab, data, setCurQuesNo, curQuesNo, answerStatus, onRadioClick } = this.props;
         const qNo = curQuesNo[activeTab];
         const totalQues = data[activeTab].questions.length;
         return (
@@ -17,16 +23,17 @@ class Question extends Component {
                     </div>
                     <div className="question-opt">
                         <Options
+                            onRadioClick={onRadioClick}
                             qID={data[activeTab].questions[qNo - 1].qID}
                             ansOptions={data[activeTab].questions[qNo - 1].ansOptions} />
                     </div>
                     <QuestionNavigation
+                        qID={data[activeTab].questions[qNo - 1].qID}
                         totalQues={totalQues}
                         curQuesNo={qNo}
                         setCurQuesNo={setCurQuesNo} />
                 </div>
                 <QuestionMap
-                    handleAnswerStatus={handleAnswerStatus}
                     answerStatus={answerStatus}
                     activeTabData={data[activeTab]}
                     activeTab={activeTab}

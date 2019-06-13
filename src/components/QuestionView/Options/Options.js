@@ -3,7 +3,7 @@ import { Form } from 'react-bootstrap';
 
 class Options extends Component {
     render() {
-        const {ansOptions, qID} = this.props;
+        const {ansOptions, qID, onRadioClick} = this.props;
 
         return (
             <Form>
@@ -15,6 +15,8 @@ class Options extends Component {
                         id={optObj.aID}
                         key={optObj.aID}
                         label={optObj.aDesc}
+                        value={optObj.aID}
+                        onClick={onRadioClick}
                     />)
                 })}
             </Form>
