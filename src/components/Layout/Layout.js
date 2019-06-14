@@ -17,7 +17,9 @@ class Layout extends Component {
         answerStatus: {}
     }
     handleTabclick = (eventKey) => {
-        this.setState({ activeTab: eventKey });
+        if(eventKey !== this.state.activeTab) {
+            this.setState({ activeTab: eventKey });
+        }
     }
     setCurQuesNo = (curQuesNo, qID) => {
         if (this.state.activeTab === "logical") {
@@ -73,7 +75,26 @@ class Layout extends Component {
         const result = window.confirm("Are you sure! Once Submitted you can not go back.");
         if (result) {
             // post payload in real server
+            // clear local storage
+            localStorage.removeItem("localState");
             // Close the application
+        }
+    }
+    componentDidMount = () => {
+        const localStorageData = JSON.parse(localStorage.getItem("localState"));
+        if (localStorageData) {
+            this.setState({
+                data: localStorageData.data,
+                activeTab: localStorageData.activeTab,
+                curQuesNo: localStorageData.curQuesNo,
+                answerStatus: localStorageData.answerStatus
+            });
+        }
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (snapshot !== null) {
+            console.log("update")
+            localStorage.setItem("localState", JSON.stringify(this.state));
         }
     }
     render() {

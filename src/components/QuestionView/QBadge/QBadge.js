@@ -3,9 +3,11 @@ import React, { Component } from 'react';
 class QBadge extends Component {
     render() {
         const { activeTabData, setCurQuesNo, answerStatus, curQuesNo } = this.props;
-        const onBadgeClick = (e) => {
+        const onBadgeClick = (e, curInd) => {
             e.preventDefault();
-            setCurQuesNo(parseInt(e.target.getAttribute("data-qno")), e.target.id);
+            if(curInd !== curQuesNo) {
+                setCurQuesNo(parseInt(e.target.getAttribute("data-qno")), e.target.id);
+            }
         }
         const checkBadge = (key, index) => {
             let badgeClass = "";
@@ -27,7 +29,7 @@ class QBadge extends Component {
                 id={qObj.qID}
                 href="#"
                 className={`badge badge-pill ${badgeClass}`}
-                onClick={onBadgeClick}
+                onClick={(e) => onBadgeClick(e, ind + 1)}
                 key={qObj.qID}>
                 {ind + 1}
             </a>
