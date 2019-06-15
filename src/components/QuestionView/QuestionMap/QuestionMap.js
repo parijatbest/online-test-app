@@ -3,7 +3,7 @@ import QBadge from './../QBadge/QBadge';
 
 class QuestionMap extends Component {
     render() {
-        const { setCurQuesNo, curQuesNo, activeTab, activeTabData, answerStatus, handleAnswerStatus } = this.props;
+        const { setCurQuesNo, curQuesNo, activeTab, activeTabData, answerStatus } = this.props;
 
         return (
             <div className="question-map">

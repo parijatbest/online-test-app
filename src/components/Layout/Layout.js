@@ -91,13 +91,11 @@ class Layout extends Component {
             });
         }
     }
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (snapshot !== null) {
-            console.log("update")
-            localStorage.setItem("localState", JSON.stringify(this.state));
-        }
+    componentDidUpdate() {
+        localStorage.setItem("localState", JSON.stringify(this.state));
     }
     render() {
+        console.log(this.state.data.logical.questions[0])
         return (
             <React.Fragment>
                 <Container>

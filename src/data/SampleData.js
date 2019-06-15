@@ -88,6 +88,28 @@ const TestData = {
                         aDesc: "Sample logical Q4 answer 4"
                     }
                 ]
+            },
+            {
+                qID: "logicalQ5",
+                qDesc: "How to answer a logical question 5 in this application4?",
+                ansOptions: [
+                    {
+                        aID: "logicalQ5Opt1",
+                        aDesc: "Sample logical Q5 answer 1"
+                    },
+                    {
+                        aID: "logicalQ5Opt2",
+                        aDesc: "Sample logical Q5 answer 2"
+                    },
+                    {
+                        aID: "logicalQ5Opt3",
+                        aDesc: "Sample logical Q5 answer 3"
+                    },
+                    {
+                        aID: "logicalQ5Opt5",
+                        aDesc: "Sample logical Q5 answer 4"
+                    }
+                ]
             }
         ]
     },

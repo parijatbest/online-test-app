@@ -17,22 +17,21 @@ class QBadge extends Component {
                     badgeClass = "badge-answered";
                 }
             }
-            if(curQuesNo == index + 1) {
+            if(curQuesNo === index + 1) {
                 badgeClass += " badge-current";
             }
             return badgeClass;
         }
         const qBadges = activeTabData.questions.map((qObj, ind) => {
             const badgeClass = checkBadge(qObj.qID, ind);
-            return <a
+            return <button
                 data-qno={ind + 1}
                 id={qObj.qID}
-                href="#"
                 className={`badge badge-pill ${badgeClass}`}
                 onClick={(e) => onBadgeClick(e, ind + 1)}
                 key={qObj.qID}>
                 {ind + 1}
-            </a>
+            </button>
         })
     
         return qBadges;

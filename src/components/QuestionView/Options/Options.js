@@ -20,7 +20,7 @@ class Options extends Component {
                         label={optObj.aDesc}
                         value={optObj.aID}
                         onChange={onRadioClick}
-                        checked={(answered == optObj.aID) ? true : false}
+                        checked={(answered === optObj.aID) ? true : false}
                     />)
                 })}
             </Form>

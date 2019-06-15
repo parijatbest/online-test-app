@@ -121,6 +121,7 @@
     border: 1px solid #ccc;
     margin-top: 30px;
     padding: 10px 20px;
+    background: #fff;
 }
 .App .question-view .question .question-map .qmap-heading {
     font-size: 0.85em;
@@ -158,7 +159,9 @@
     font-size: 0.6em;
     width: 20px;
     height: 20px;
-    padding: 5px 0 0 0;
+    padding: 0;
+    border: none;
+    background: #fff;
 }
 .App .question-view .question .question-map .qmap-badge .badge.badge-answered {
     background: #2EB570;
