@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-import Countdown from 'react-countdown-now';
+import Countdown, {zeroPad} from 'react-countdown-now';
 import ModalUI from './../ModalUI/ModalUI';
 
 class Counter extends Component {
     state = {
         showModal: true
     }
+    /**
+     * Function to save time left details in local storage
+     */
     onHandleTick = (timeLeftObj) => {
         localStorage.setItem("timeLeftMs", timeLeftObj.total);
     }
+    /**
+     * Handle modal close event when time up
+     */
     handleClose = () => {
         this.setState({ showModal: false });
         this.props.handleSubmit(true);
@@ -32,7 +38,7 @@ class Counter extends Component {
                 return (
                     <div className="counter">
                         <p className="counter-text">TIME LEFT</p>
-                        <p className="counter-time">{hours}:{minutes}:{seconds}</p>
+                        <p className="counter-time">{zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}</p>
                     </div>
                 );
             }
@@ -41,7 +47,6 @@ class Counter extends Component {
         return (
             <Countdown
                 date={Date.now() + timeLeftMs}
-                // zeroPadTime={2}
                 renderer={renderer}
                 onTick={this.onHandleTick}
             />

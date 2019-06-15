@@ -17,11 +17,17 @@ class Layout extends Component {
         answerStatus: {},
         timeUp: false
     }
+    /**
+     * Function to handle tabclick event
+     */
     handleTabclick = (eventKey) => {
         if (eventKey !== this.state.activeTab) {
             this.setState({ activeTab: eventKey });
         }
     }
+    /**
+     * Store current question from each section status in state
+     */
     setCurQuesNo = (curQuesNo, qID) => {
         if (this.state.activeTab === "logical") {
             this.setState((prevState) => {
@@ -56,6 +62,9 @@ class Layout extends Component {
         }
         this.handleAnswerStatus(qID);
     }
+    /**
+     * Store all anwer status from each section in state
+     */
     handleAnswerStatus = (qID) => {
         const obj = { ...this.state.answerStatus };
         if (!(obj[qID] && obj[qID].answered)) {
@@ -63,6 +72,9 @@ class Layout extends Component {
         }
         this.setState({ answerStatus: obj });
     }
+    /**
+     * Selecting on the option store the data in state
+     */
     handleRadioClick = (e) => {
         const obj = { ...this.state.answerStatus };
         obj[e.target.name] = {
@@ -70,6 +82,10 @@ class Layout extends Component {
         }
         this.setState({ answerStatus: obj });
     }
+    /**
+     * Handle submit buttton functionality
+     * Either user clicked on submit or synthetically happened due to time up
+     */
     handleSubmit = (timeUp) => {
         const payload = this.state.answerStatus
         console.log(payload);
@@ -79,13 +95,20 @@ class Layout extends Component {
         }
         if (result || (timeUp === true)) {
             // post payload in real server
+            /**
+             * Ajax call ...
+             */
             // clear local storage
             localStorage.removeItem("localState");
             this.setState({ timeUp: true });
             localStorage.removeItem("timeLeftMs");
             // Close the application
+            console.log("closing")
         }
     }
+    /**
+     * Once component mounted first time get value from local storage if available
+     */
     componentDidMount = () => {
         const localStorageData = JSON.parse(localStorage.getItem("localState"));
         if (localStorageData) {
@@ -97,6 +120,9 @@ class Layout extends Component {
             });
         }
     }
+    /**
+     * Store state data in local storage when component updates
+     */
     componentDidUpdate() {
         if(!this.state.timeUp) {
             localStorage.setItem("localState", JSON.stringify(this.state));
