@@ -7,7 +7,7 @@ class RightPanel extends Component {
         return (
             <React.Fragment>
                 <LoginStatus />
-                {(!this.props.timeUp) ? <Counter /> : null }
+                {(!this.props.timeUp) ? <Counter handleSubmit={this.props.handleSubmit} /> : null }
                 
             </React.Fragment>
         );

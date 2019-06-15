@@ -1,25 +1,32 @@
 import React, { Component } from 'react';
 import Countdown from 'react-countdown-now';
+import ModalUI from './../ModalUI/ModalUI';
 
 class Counter extends Component {
+    state = {
+        showModal: true
+    }
     onHandleTick = (timeLeftObj) => {
         localStorage.setItem("timeLeftMs", timeLeftObj.total);
     }
+    handleClose = () => {
+        this.setState({ showModal: false });
+        this.props.handleSubmit(true);
+    }
     render() {
-        let timeLeftMs = 3 * 1000;
-        // let timeLeftMs = 2 * 60 * 60 * 1000;
+        let timeLeftMs = 2 * 60 * 60 * 1000;
         const localStorageData = parseInt(localStorage.getItem("timeLeftMs"));
         if (localStorageData) {
-             timeLeftMs = localStorageData;
+            timeLeftMs = localStorageData;
         }
-        // Random component
-        const Completionist = () => <span>You are good to go!</span>;
 
         // Renderer callback with condition
         const renderer = ({ hours, minutes, seconds, completed }) => {
             if (completed) {
                 // Render a completed state
-                return <Completionist />;
+                return <ModalUI
+                    show={this.state.showModal}
+                    handleClose={this.handleClose} />;
             } else {
                 // Render a countdown
                 return (

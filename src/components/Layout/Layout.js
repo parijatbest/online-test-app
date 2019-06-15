@@ -18,7 +18,7 @@ class Layout extends Component {
         timeUp: false
     }
     handleTabclick = (eventKey) => {
-        if(eventKey !== this.state.activeTab) {
+        if (eventKey !== this.state.activeTab) {
             this.setState({ activeTab: eventKey });
         }
     }
@@ -70,15 +70,18 @@ class Layout extends Component {
         }
         this.setState({ answerStatus: obj });
     }
-    handleSubmit = () => {
+    handleSubmit = (timeUp) => {
         const payload = this.state.answerStatus
         console.log(payload);
-        const result = window.confirm("Are you sure! Once Submitted you can not go back.");
-        if (result) {
+        let result = false;
+        if(timeUp !== true) {
+            result = window.confirm("Are you sure! Once Submitted you can not go back.");
+        }
+        if (result || (timeUp === true)) {
             // post payload in real server
             // clear local storage
             localStorage.removeItem("localState");
-            this.setState({timeUp: true});
+            this.setState({ timeUp: true });
             localStorage.removeItem("timeLeftMs");
             // Close the application
         }
@@ -95,7 +98,9 @@ class Layout extends Component {
         }
     }
     componentDidUpdate() {
-        localStorage.setItem("localState", JSON.stringify(this.state));
+        if(!this.state.timeUp) {
+            localStorage.setItem("localState", JSON.stringify(this.state));
+        }
     }
     render() {
         return (
@@ -106,7 +111,9 @@ class Layout extends Component {
                             <LeftPanel onSubmitClick={this.handleSubmit} />
                         </Col>
                         <Col lg="3" className="right-panel">
-                            <RightPanel timeUp={this.state.timeUp} />
+                            <RightPanel
+                                handleSubmit={this.handleSubmit}
+                                timeUp={this.state.timeUp} />
                         </Col>
                     </Row>
                     <QuestionView
