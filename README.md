@@ -1,13 +1,13 @@
-##Project: Online test app
-##Author: Parijat Mandal
+###Project: Online test app
+###Author: Parijat Mandal
 
-Actions
-o Previous Question – This will take the application to the previous question
-o Next Question – This will take the application to the next question
-o Submit – This will submit and close the application. 
+###Actions
+###o Previous Question – This will take the application to the previous question
+###o Next Question – This will take the application to the next question
+###o Submit – This will submit and close the application. 
   PLEAE NOTE: THERE SHOULD BE A WARNING PROMPT BEFORE CONFIRMING SUBMISSION
-o Individual question markers (bottom card) – Click on this will load the selected question in the question card
-o Tabs – Clicking on each will load the questions related to the selected tabs
+###o Individual question markers (bottom card) – Click on this will load the selected question in the question card
+###o Tabs – Clicking on each will load the questions related to the selected tabs
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
