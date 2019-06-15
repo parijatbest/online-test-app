@@ -83,6 +83,13 @@ class Layout extends Component {
         this.setState({ answerStatus: obj });
     }
     /**
+     * close the application
+     */
+    closeApp = () => {
+        const win = window.open("about:blank", "_self");
+        win.close();
+    }
+    /**
      * Handle submit buttton functionality
      * Either user clicked on submit or synthetically happened due to time up
      */
@@ -90,7 +97,7 @@ class Layout extends Component {
         const payload = this.state.answerStatus
         console.log(payload);
         let result = false;
-        if(timeUp !== true) {
+        if (timeUp !== true) {
             result = window.confirm("Are you sure! Once Submitted you can not go back.");
         }
         if (result || (timeUp === true)) {
@@ -103,7 +110,7 @@ class Layout extends Component {
             this.setState({ timeUp: true });
             localStorage.removeItem("timeLeftMs");
             // Close the application
-            console.log("closing")
+            this.closeApp();
         }
     }
     /**
@@ -124,7 +131,7 @@ class Layout extends Component {
      * Store state data in local storage when component updates
      */
     componentDidUpdate() {
-        if(!this.state.timeUp) {
+        if (!this.state.timeUp) {
             localStorage.setItem("localState", JSON.stringify(this.state));
         }
     }
