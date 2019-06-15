@@ -7,7 +7,8 @@ class RightPanel extends Component {
         return (
             <React.Fragment>
                 <LoginStatus />
-                <Counter />
+                {(!this.props.timeUp) ? <Counter /> : null }
+                
             </React.Fragment>
         );
     }

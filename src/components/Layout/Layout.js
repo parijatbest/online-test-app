@@ -14,7 +14,8 @@ class Layout extends Component {
             aptitude: 1,
             reasoning: 1
         },
-        answerStatus: {}
+        answerStatus: {},
+        timeUp: false
     }
     handleTabclick = (eventKey) => {
         if(eventKey !== this.state.activeTab) {
@@ -77,6 +78,8 @@ class Layout extends Component {
             // post payload in real server
             // clear local storage
             localStorage.removeItem("localState");
+            this.setState({timeUp: true});
+            localStorage.removeItem("timeLeftMs");
             // Close the application
         }
     }
@@ -95,7 +98,6 @@ class Layout extends Component {
         localStorage.setItem("localState", JSON.stringify(this.state));
     }
     render() {
-        console.log(this.state.data.logical.questions[0])
         return (
             <React.Fragment>
                 <Container>
@@ -104,7 +106,7 @@ class Layout extends Component {
                             <LeftPanel onSubmitClick={this.handleSubmit} />
                         </Col>
                         <Col lg="3" className="right-panel">
-                            <RightPanel />
+                            <RightPanel timeUp={this.state.timeUp} />
                         </Col>
                     </Row>
                     <QuestionView
